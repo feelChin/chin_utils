@@ -1,6 +1,6 @@
 {
   "name": "chin-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "个人常用工具包",
   "main": "index.js",
   "homepage": "",
@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/xxx"
+    "url": "https://github.com/feelChin/chin_utils.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

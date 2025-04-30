@@ -2,7 +2,7 @@ export default ({
 	start = Date.now(),
 	end = Date.now() + 24 * 60 * 60 * 1000,
 	fps = 30,
-	zero = true,
+	fillzero = true,
 	millisecond = false,
 	cb = () => {},
 	isEnd = () => {},
@@ -14,7 +14,7 @@ export default ({
 	let lastTime = 0;
 
 	function padStartTwo(num) {
-		if (!zero) return num;
+		if (!fillzero) return num;
 		return num < 10 ? "0" + num : num;
 	}
 
