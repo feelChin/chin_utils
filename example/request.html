@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fetch请求</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+</body>
+
+<script type="module">
+  import { request } from "../index.js";
+
+  //响应拦截
+  request.api.response = (response) => {
+    return new Promise((_, reject) => {
+      if (response.code !== 200) {
+        reject(response.msg || '请求失败')
+      }
+    })
+  }
+
+  //错误处理
+  request.api.error = (err) => {
+    if (err === '登录失败') {
+      // do something
+    }
+  }
+
+
+  async function get() {
+    try {
+      const res = await request.get('./',
+        {
+          headers: {
+            os: 'x'
+          },
+          data: {
+            page: 1,
+            page_size: 10
+          }
+        })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function post() {
+    try {
+      const res = await request.post('./',
+        {
+          data: {
+            page: 1,
+            page_size: 10
+          }
+        })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function put() {
+    try {
+      const res = await request.put('./',
+        {
+          type: 'form',
+          data: {
+            page: 1,
+            page_size: 10
+          }
+        })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  get()
+  post()
+  put()
+
+  //取消正在进行的请求
+  request.api.cancel()
+</script>
+
+</html>

@@ -9,6 +9,8 @@ import timeCountdown from "./utils/timeCountdown.js";
 import LazyImage from "./utils/lazyImage.js";
 import VisibleItem from "./utils/visibleItem.js";
 import VisibleItemToScroll from "./utils/visibleItemToScroll.js";
+import aggregation from "./utils/aggregation.js";
+import request from "./utils/request.js";
 
 export {
 	userBrowser,
@@ -21,6 +23,8 @@ export {
 	LazyImage,
 	VisibleItem,
 	VisibleItemToScroll,
+	aggregation,
+	request,
 };
 
 export default (() => {
