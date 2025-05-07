@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>节流</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="app center column">
+    <span>0</span>
+    <div class="h-20"></div>
+    <button class="btn1">点击</button>
+    <div class="h-20"></div>
+    <button class="btn2">节流点击</button>
+    <div class="h-20"></div>
+    <button class="btn3">节流点击立即生效</button>
+  </div>
+</body>
+
+<script type="module">
+  import { throttle } from "../index.js";
+
+  let count = 0
+
+  const fn = () => {
+    count += 1
+    _('span').innerHTML = count
+  }
+
+  _('.btn1').addEventListener('click', fn);
+
+  const t1 = throttle(fn, 500);
+  _('.btn2').addEventListener('click', t1)
+
+  const t2 = throttle(fn, 500, true);
+  _('.btn3').addEventListener('click', t2)
+
+
+</script>
+
+</html>

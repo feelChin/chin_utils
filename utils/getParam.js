@@ -1,8 +1,9 @@
-export default () => {
+export default (data) => {
 	const url = window.location.search;
+	let result = null;
 
-	if (url.indexOf(data) === -1) {
-		return null;
+	if (!~url.indexOf(data)) {
+		return result;
 	}
 
 	let params = url.split("?");
@@ -19,4 +20,6 @@ export default () => {
 			}
 		});
 	} catch {}
+
+	return result;
 };

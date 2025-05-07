@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>元素可见时</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="app column w60 auto ">
+    <div class="h-500"></div>
+    <img src="./img/0.jpg" class="visibleItem" alt="">
+    <div class="h-500"></div>
+    <img src="./img/1.jpg" class="visibleItem" alt="">
+    <div class="h-500"></div>
+    <img src="./img/2.jpg" class="visibleItem" alt="">
+    <div class="h-500"></div>
+  </div>
+</body>
+
+<script type="module">
+  import { VisibleItem } from "../index.js";
+
+  new VisibleItem({
+    el: '.visibleItem',
+    className: 'active'
+  })
+
+</script>
+
+</html>

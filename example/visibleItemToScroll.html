@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>元素可见时跟随滚动</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="app column w60 auto ">
+    <div class="h-500"></div>
+    <div class="h-500"></div>
+    <img class="scrollImg scrollImg1" speed="1" destroy="1" src="./img/0.jpg" alt="">
+    <div class="h-500"></div>
+    <img class="scrollImg scrollImg2" speed="1.5" src="./img/1.jpg" alt="">
+    <div class="h-500"></div>
+    <img class="scrollImg scrollImg3" destroy="1" src="./img/2.jpg" alt="">
+    <div class="h-500"></div>
+    <div class="h-500"></div>
+  </div>
+</body>
+
+<script type="module">
+  import { VisibleItemToScroll } from "../index.js";
+
+  new VisibleItemToScroll({
+    el: '.scrollImg',
+    className: 'active',
+  })
+
+</script>
+
+</html>

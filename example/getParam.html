@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>获取浏览器url参数</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="app center column">
+    <span></span>
+    <div class="h-20"></div>
+    <button class="btn1">获取id</button>
+    <div class="h-20"></div>
+    <button class="btn2">获取name</button>
+  </div>
+</body>
+
+<script type="module">
+  import { getParam } from "../index.js";
+
+  _('.btn1').addEventListener('click', () => {
+    _('span').innerHTML = getParam('id') || 'url没有该参数'
+  })
+
+  _('.btn2').addEventListener('click', () => {
+    _('span').innerHTML = getParam('name') || 'url没有该参数'
+  })
+</script>
+
+</html>

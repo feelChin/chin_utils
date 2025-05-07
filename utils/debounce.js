@@ -17,10 +17,5 @@ export default (fn, delay = 300, immediate, props) => {
 		}
 	};
 
-	myDebounce.cancel = () => {
-		clearTimeout(timer);
-		timer = null;
-	};
-
 	return myDebounce;
 };

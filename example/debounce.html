@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>防抖</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="app center column">
+    <span>0</span>
+    <div class="h-20"></div>
+    <button class="btn1">点击</button>
+    <div class="h-20"></div>
+    <button class="btn2">防抖点击</button>
+    <div class="h-20"></div>
+    <button class="btn3">防抖点击立即生效</button>
+  </div>
+</body>
+
+<script type="module">
+  import { debounce } from "../index.js";
+
+  let count = 0
+
+  const fn = () => {
+    count += 1
+    _('span').innerHTML = count
+  }
+
+  _('.btn1').addEventListener('click', fn);
+
+  const d1 = debounce(fn, 300);
+  _('.btn2').addEventListener('click', d1)
+
+  const d2 = debounce(fn, 300, true);
+  _('.btn3').addEventListener('click', d2)
+
+
+</script>
+
+</html>

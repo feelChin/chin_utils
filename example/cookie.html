@@ -4,29 +4,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>cookie</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-  <p entrust="ddd">点我</p>
-  <p entrust="aaa">点我a</p>
+  <div class="app center column">
+    <p>我的cookie:<span></span></p>
+    <div class="h-20"></div>
+    <button class="btn1">获取cookie</button>
+    <div class="h-20"></div>
+    <button class="btn2">设置cookie</button>
+    <div class="h-20"></div>
+    <button class="btn3">删除cookie</button>
+    <div class="h-20"></div>
+    <button class="btn4">清空全部cookie</button>
+  </div>
 </body>
 
 <script type="module">
-  import { timeCountdown } from "../index.js";
+  import { cookie } from "../index.js";
 
-  timeCountdown({
-    start: '2025-05-03 00:00:00',
-    end: '2025-05-03 00:00:13',
-    fps: 40,
-    zero: false,
-    millisecond: true,
-    cb: ({ d, h, m, s }) => {
-      _('p')[0].innerHTML = `${d}-${h}-${m}-${s}`
-    },
-    isEnd: () => {
-      console.log(1);
-    }
+  _('.btn1').addEventListener('click', () => {
+    _('span').innerHTML = cookie.get('id') || '暂无'
+  })
+
+  _('.btn2').addEventListener('click', () => {
+    cookie.set('id', Date.now())
+  })
+
+  _('.btn3').addEventListener('click', () => {
+    cookie.delete('id')
+  })
+
+  _('.btn4').addEventListener('click', () => {
+    cookie.clear()
   })
 
 </script>

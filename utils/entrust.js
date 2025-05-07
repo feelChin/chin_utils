@@ -1,7 +1,7 @@
 import debounce from "./debounce.js";
 
 export default function entrust(element, callback) {
-	const self = window.FEELCHIN_UTILS;
+	const self = this || window.FEELCHIN_UTILS;
 
 	if (!self._body) {
 		self._body = document.body;
@@ -16,7 +16,7 @@ export default function entrust(element, callback) {
 
 				if (entrust && self.eventList[entrust]) {
 					self.eventList[entrust]({
-						that: this,
+						self: this,
 						element: target,
 					});
 					break;

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件委托</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="app center column">
+    <button entrust="a">点击a</button>
+    <div class="h-20"></div>
+    <button entrust="b">点击b</button>
+    <div class="h-20"></div>
+    <button entrust="c">点击c</button>
+    <div class="h-20"></div>
+    <button entrust="d">卸载 bc</button>
+  </div>
+</body>
+
+<script type="module">
+  import { entrust } from "../index.js";
+
+  entrust('a', (e) => {
+    console.log(e);
+  })
+
+  //------------------------------------
+
+  class Demo {
+    constructor() {
+      this.name = 'chin'
+      this.entrust = entrust
+    }
+  };
+
+  new Demo()
+    .entrust('b', (e) => {
+      console.log(e);
+    })
+    .entrust('c', (e) => {
+      console.log(e);
+    })
+    .entrust('d', ({ self }) => {
+      self.entrust_cancel()
+    })
+
+</script>
+
+</html>

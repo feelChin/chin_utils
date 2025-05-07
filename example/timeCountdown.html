@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>倒计时</title>
+</head>
+
+<body>
+  <div class="app center column">
+    <div class="flex">
+      <h5>不补零:</h5>
+      <div class="w-20"></div>
+      <p class="text1"></p>
+      <div class="w-20"></div>
+      <p class="text1_end"></p>
+    </div>
+    <div class="h-20"></div>
+    <div class="flex">
+      <h5>毫秒:</h5>
+      <div class="w-20"></div>
+      <p class="text2"></p>
+      <div class="w-20"></div>
+      <p class="text2_end"></p>
+    </div>
+    <div class="h-20"></div>
+    <div class="flex">
+      <h5>低帧率:</h5>
+      <div class="w-20"></div>
+      <p class="text3"></p>
+      <div class="w-20"></div>
+      <p class="text3_end"></p>
+    </div>
+    <div class="h-20"></div>
+    <div class="flex">
+      <h5>24计时:</h5>
+      <div class="w-20"></div>
+      <p class="text4"></p>
+      <div class="w-20"></div>
+      <p class="text4end"></p>
+    </div>
+  </div>
+</body>
+
+<script type="module">
+  import { timeCountdown } from "../index.js";
+
+  timeCountdown({
+    start: '2000-01-01 00:00:00',
+    end: '2000-01-01 00:00:15',
+    fillzero: false,
+    cb: ({ d, h, m, s }) => {
+      _('.text1').innerHTML = `${d}-${h}-${m}-${s}`
+    },
+    isEnd: () => {
+      _('.text1_end').innerHTML = '已结束'
+    }
+  })
+
+  // ----------------------------------------
+
+  timeCountdown({
+    start: '2000-01-01 00:00:00',
+    end: '2000-01-01 00:00:15',
+    millisecond: true,
+    cb: ({ d, h, m, s }) => {
+      _('.text2').innerHTML = `${d}-${h}-${m}-${s}`
+    },
+    isEnd: () => {
+      _('.text2_end').innerHTML = '已结束'
+    }
+  })
+
+
+  // ----------------------------------------
+
+  timeCountdown({
+    start: '2000-01-01 00:00:00',
+    end: '2000-01-01 00:00:15',
+    fps: 6,
+    millisecond: true,
+    cb: ({ d, h, m, s }) => {
+      _('.text3').innerHTML = `${d}-${h}-${m}-${s}`
+    },
+    isEnd: () => {
+      _('.text3_end').innerHTML = '已结束'
+    }
+  })
+
+  // ----------------------------------------
+
+  timeCountdown({
+    cb: ({ h, m, s }) => {
+      _('.text4').innerHTML = `${h}小时${m}分${s}秒`
+    },
+    isEnd: () => {
+      _('.text4_end').innerHTML = '已结束'
+    }
+  })
+
+</script>
+
+</html>
